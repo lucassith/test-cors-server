@@ -26,7 +26,7 @@ router.post('/no-cors', cors({
   "methods": ['POST', 'OPTIONS'],
   "preflightContinue": false,
   "optionsSuccessStatus": 204
-}, function(req, res, next) {
+}), function(req, res, next) {
   allBody.push({
     date: new Date(),
     body: req.body,
