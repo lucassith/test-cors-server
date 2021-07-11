@@ -8,7 +8,7 @@ const allBody = [];
 router.post('/cors', cors({
   "origin": "https://3lancers.dev",
   "allowedHeaders": ["Access-Control-Allow-Origin"],
-  "methods": ['POST'],
+  "methods": ['POST', 'OPTIONS'],
   "preflightContinue": false,
   "optionsSuccessStatus": 204
 }), function(req, res, next) {
