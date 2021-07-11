@@ -21,7 +21,7 @@ router.post('/cors', cors({
 });
 
 /* GET home page. */
-router.post('/no-cors', cors(), function(req, res, next) {
+router.post('/no-cors', function(req, res, next) {
   allBody.push({
     date: new Date(),
     body: req.body,
