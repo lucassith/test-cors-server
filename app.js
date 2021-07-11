@@ -13,7 +13,14 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.options('/products/:id', cors())
+app.options('/cors', cors({
+  "origin": "https://cors.3lancers.dev",
+  "allowedHeaders": ["Access-Control-Allow-Origin"],
+  "methods": ['POST', 'OPTIONS'],
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}))
+app.options('/no-cors', cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -5,13 +5,7 @@ var cors = require('cors')
 const allBody = [];
 
 /* GET home page. */
-router.post('/cors', cors({
-  "origin": "https://example.com",
-  "allowedHeaders": ["Access-Control-Allow-Origin"],
-  "methods": ['POST', 'OPTIONS'],
-  "preflightContinue": false,
-  "optionsSuccessStatus": 204
-}), function(req, res, next) {
+router.post('/cors', function(req, res, next) {
   allBody.push({
     date: new Date(),
     body: req.body,
