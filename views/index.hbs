@@ -2,8 +2,8 @@
 
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
-<button id="callCors">call cors</button>
-<p id="log"></p>
+<button id="callCors">call /cors</button>
+<button id="callNoCors">call /no-cors</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js">
 </script>
@@ -21,8 +21,23 @@ function callCorsAxios() {
     .then(() => {
     })
     .catch(() => {
-        
     });
 }
+function callNoCorsAxios() {
+    console.log('calling cors')
+    axios.post("https://cors.3lancers.dev/no-cors", {
+        "cors test": true,
+    }, { 
+        mode: 'cors',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(() => {
+    })
+    .catch(() => {
+    });
+}
+document.getElementById("callCors").addEventListener("click", callNoCorsAxios, false)
 document.getElementById("callCors").addEventListener("click", callCorsAxios, false)
 </script>

@@ -20,7 +20,13 @@ router.post('/cors', cors({
 });
 
 /* GET home page. */
-router.post('/no-cors', function(req, res, next) {
+router.post('/no-cors', cors({
+  "origin": "*",
+  "allowedHeaders": ["Access-Control-Allow-Origin"],
+  "methods": ['POST', 'OPTIONS'],
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}, function(req, res, next) {
   allBody.push({
     date: new Date(),
     body: req.body,
