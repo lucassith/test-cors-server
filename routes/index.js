@@ -6,7 +6,7 @@ const allBody = [];
 
 /* GET home page. */
 router.post('/cors', cors({
-  "origin": "https://3lancers.dev",
+  "origin": "https://example.com",
   "allowedHeaders": ["Access-Control-Allow-Origin"],
   "methods": ['POST', 'OPTIONS'],
   "preflightContinue": false,
@@ -29,6 +29,10 @@ router.post('/no-cors', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+router.get('/history', function(req, res, next) {
   res.header('Content-Type', 'application/json').send(JSON.stringify(allBody, null, 4));
 });
 

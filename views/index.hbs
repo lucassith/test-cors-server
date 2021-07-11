@@ -1,0 +1,28 @@
+
+
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<button id="callCors">call cors</button>
+<p id="log"></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js">
+</script>
+<script defer>
+function callCorsAxios() {
+    console.log('calling cors')
+    axios.post("https://cors.3lancers.dev/cors", {
+        "cors test": true,
+    }, { 
+        mode: 'cors',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(() => {
+    })
+    .catch(() => {
+        
+    });
+}
+document.getElementById("callCors").addEventListener("click", callCorsAxios, false)
+</script>
