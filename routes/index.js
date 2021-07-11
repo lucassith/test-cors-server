@@ -15,7 +15,7 @@ router.post('/cors', cors({
   allBody.push({
     date: new Date(),
     body: req.body,
-    
+    url: req.url
   });
   res.send('OK');
 });
