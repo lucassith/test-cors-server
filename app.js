@@ -26,6 +26,7 @@ app.options('/cors', cors({
   "optionsSuccessStatus": 204
 }))
 app.options('/no-cors', cors())
+app.use(cors())
 app.use('/', indexRouter);
 
 
