@@ -18,7 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors())
 app.options('/cors', cors({
   "origin": "https://cors.3lancers.dev",
   "allowedHeaders": ["Access-Control-Allow-Origin"],

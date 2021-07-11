@@ -5,7 +5,13 @@ var cors = require('cors')
 const allBody = [];
 
 /* GET home page. */
-router.post('/cors', function(req, res, next) {
+router.post('/cors', cors({
+  "origin": "https://cors.3lancers.dev",
+  "allowedHeaders": ["Access-Control-Allow-Origin"],
+  "methods": ['POST', 'OPTIONS'],
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}), function(req, res, next) {
   allBody.push({
     date: new Date(),
     body: req.body,
@@ -15,7 +21,7 @@ router.post('/cors', function(req, res, next) {
 });
 
 /* GET home page. */
-router.post('/no-cors', function(req, res, next) {
+router.post('/no-cors', cors(), function(req, res, next) {
   allBody.push({
     date: new Date(),
     body: req.body,
